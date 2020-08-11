@@ -16,7 +16,6 @@ public class Menu {
             if      (selectedOption.equals("0"))    keepRunning = false;
             else if (selectedOption.equals("1"))    validateCNPJ();
             else if (selectedOption.equals("2"))    validateCNPJDigits();
-            else if (selectedOption.equals("3"))    restClientWorldClock();
 
             waitToContinue();
             simulateCleanScreen();
@@ -28,7 +27,6 @@ public class Menu {
         System.out.println("* 0 - Exit Application                *");
         System.out.println("* 1 - Validate CNPJ format (Mask)     *");
         System.out.println("* 2 - Validate CNPJ Digits            *");
-        System.out.println("* 3 - Rest Client World Clock         *");
         System.out.println("***************************************");
         System.out.println();
     }
@@ -50,11 +48,6 @@ public class Menu {
         String cnpj = readInput("Enter the CNPJ value: ");
         if(ValidateCNPJDigits.checkDigits(cnpj))    System.out.println(String.format("The CNPJ %s is a valid one", cnpj));
         else                                        System.out.println(String.format("The CNPJ %s is not a valid one", cnpj));
-    }
-
-    private static void restClientWorldClock() throws IOException{
-        String localTime = RestClient.getLocalTime();
-        System.out.println("Local time = " + localTime);
     }
 
     private static void waitToContinue() throws IOException{
